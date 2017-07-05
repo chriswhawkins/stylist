@@ -1,0 +1,5 @@
+.gallery #btn {
+  cursor: pointer;
+  display: block;
+  margin: 10%;
+}
