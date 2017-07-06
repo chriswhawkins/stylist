@@ -3,13 +3,11 @@ import PhotoSwipeUiDefault from 'photoswipe/dist/photoswipe-ui-default';
 import 'photoswipe/dist/photoswipe.css';
 import 'photoswipe/dist/default-skin/default-skin.css';
 import './gallery.css';
+import galleryHTML from './gallery.html';
 
-const GalleryDom = require('./gallery.html');
-
-
-function component() {
+function Gallery() {
   const element = document.createElement('div');
-  element.innerHTML = `${GalleryDom}`;
+  element.innerHTML = `${galleryHTML}`;
   return element;
 }
 
@@ -28,7 +26,6 @@ const openPhotoSwipe = () => {
     },
   ];
 
-  // define options (if needed)
   const options = {
     focus: false,
     history: false,
@@ -37,10 +34,10 @@ const openPhotoSwipe = () => {
 
   };
 
-  const gallery = new PhotoSwipe(pswpElement, PhotoSwipeUiDefault, items, options);
-  gallery.init();
+  const galleryInstance = new PhotoSwipe(pswpElement, PhotoSwipeUiDefault, items, options);
+  galleryInstance.init();
 };
 
-document.body.appendChild(component());
+document.body.appendChild(Gallery());
 
 document.getElementById('btn').onclick = openPhotoSwipe;

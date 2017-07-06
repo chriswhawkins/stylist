@@ -1,9 +1,9 @@
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const PurifyCSSPlugin = require('purifycss-webpack');
 
-const dist = path.resolve(__dirname, './dist/');
+// const dist = path.resolve(__dirname, './dist/');
 module.exports = {
   entry: {
     buttons: './src/buttons/buttons.js',
@@ -11,12 +11,8 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, './dist/'),
-    publicPath: '/',
-  },
-  devServer: {
-    contentBase: dist,
-    publicPath: '/',
+    path: path.join(__dirname, '/dist/'),
+    publicPath: '/dist/',
   },
   module: {
     rules: [
@@ -46,10 +42,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin(),
-    new ExtractCssChunks('./dist/[name].css'),
+    new ExtractCssChunks('[name].css'),
     new PurifyCSSPlugin({
       paths: ['./src/buttons/buttons.html', './src/gallery/gallery.html'],
     }),
+    // new HtmlWebpackPlugin('[name].js'),
   ],
 };
