@@ -1,3 +1,4 @@
+/* eslint-disable */
 // const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');

@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const PurifyCSSPlugin = require('purifycss-webpack');
 
-const dist = path.resolve(__dirname, 'dist');
+const dist = path.resolve(__dirname, './dist/');
 module.exports = {
   entry: {
     buttons: './src/buttons/buttons.js',
@@ -11,7 +11,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: dist,
+    path: path.join(__dirname, './dist/'),
     publicPath: '/',
   },
   devServer: {
@@ -47,7 +47,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin(),
-    new ExtractCssChunks('[name].css'),
+    new ExtractCssChunks('./dist/[name].css'),
     new PurifyCSSPlugin({
       paths: ['./src/buttons/buttons.html', './src/gallery/gallery.html'],
     }),
